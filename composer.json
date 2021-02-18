@@ -1,0 +1,39 @@
+{
+    "name": "brace/mod-firewall",
+    "type": "library",
+    "description": "Brace Laminas (former ZendFramework) Framework bindings (ServerRequest)",
+    "keywords": ["Phore", "Dependency Injection", "Di"],
+    "homepage": "https://infracamp.org",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matthias Leuffen",
+            "email": "matthes@leuffen.de"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "brace/core": "*",
+        "brace/mod-router": "*"
+    },
+
+    "require-dev": {
+        "phore/tester": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Brace\\Firewall\\": "src"
+        },
+        "files": [
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+        }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+        }
+    }
+}
