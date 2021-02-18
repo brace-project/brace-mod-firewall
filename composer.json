@@ -1,7 +1,7 @@
 {
     "name": "brace/mod-firewall",
     "type": "library",
-    "description": "Brace Laminas (former ZendFramework) Framework bindings (ServerRequest)",
+    "description": "Brace Route-Based Firewall",
     "keywords": ["Phore", "Dependency Injection", "Di"],
     "homepage": "https://infracamp.org",
     "license": "MIT",
