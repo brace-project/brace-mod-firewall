@@ -16,7 +16,7 @@ class FirewallMiddleware extends BraceAbstractMiddleware
 
     /**
      * FirewallMiddleware constructor.
-     * @param callable[] $rule
+     * @param callable|bool[] $rule
      */
     public function __construct(
         private array $rules,
@@ -27,9 +27,16 @@ class FirewallMiddleware extends BraceAbstractMiddleware
         $reason = "default";
         foreach ($this->rules as $route => $callback) {
             if (RouteMatcher::IsMatching($route, $request, $params, $methods)) {
+                if (is_bool($callback)) {
+                    if ($callback === true)
+                        return $handler->handle($request);
+                    $reason = "Rule: $route => DENY";
+                    break;
+                }
+
                 $result = phore_di_call($callback, $this->app);
                 if ($result === false) {
-                    $reason = "Rule: $route";
+                    $reason = "Rule: $route (Callback)";
                     break; // Reject
                 }
                 if ($result === true) {
